@@ -29,14 +29,13 @@ github_username: bishoyabd
 
 # Bio links that appear under your name
 bio_links:
-  - title: "Portfolio"
-    url: "/portfolio"
+
   - title: "GitHub"
     url: "https://github.com/bishoyabd"
   - title: "LinkedIn"
     url: "https://www.linkedin.com/in/bishoylmee/"
-  - title: "Resume"
-    url: "/resume"
+  - title: "Email"
+    url: "mailto:bishoy.kamel@dubito.ai"
 
 # Build settings
 theme: minima
