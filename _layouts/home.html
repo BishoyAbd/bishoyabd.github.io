@@ -17,15 +17,22 @@ layout: default
   </div>
   
   <div class="social-links">
-    <a href="https://github.com/bishoyabd" class="social-link" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-github"></i> <span>GitHub</span>
-    </a>
-    <a href="https://linkedin.com/in/bishoyabd" class="social-link" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
-    </a>
-    <a href="mailto:{{ site.email }}" class="social-link">
-      <i class="far fa-envelope"></i> <span>Email</span>
-    </a>
+    {% for link in site.bio_links %}
+      {% assign icon_class = "" %}
+      {% if link.title == "GitHub" %}
+        {% assign icon_class = "fab fa-github" %}
+      {% elsif link.title == "LinkedIn" %}
+        {% assign icon_class = "fab fa-linkedin" %}
+      {% elsif link.title == "Email" %}
+        {% assign icon_class = "far fa-envelope" %}
+      {% endif %}
+      
+      {% if icon_class != "" %}
+        <a href="{{ link.url }}" class="social-link" {% unless link.title == "Email" %}target="_blank" rel="noopener noreferrer"{% endunless %}>
+          <i class="{{ icon_class }}"></i> <span>{{ link.title }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
   </div>
 </header>
 
