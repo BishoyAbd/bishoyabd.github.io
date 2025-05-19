@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="push--bottom">
+  <a href="/" class="txt--x-small txt--subtle">← All posts</a>
+</div>
+
+<article class="post card">
+  <header class="align--center push--bottom">
+    <div class="post__date txt--x-small flush--top push_quarter--bottom txt--subtle">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    </div>
+    
+    <h1 class="hdg hdg--xx-large flush--top push--bottom">{{ page.title }}</h1>
+  </header>
+
+  <div class="post__content prose">
+    {{ content }}
+  </div>
+  
+  {% if page.tags.size > 0 %}
+  <div class="tags push--top">
+    {% for tag in page.tags %}
+    <span class="tag">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
+
+<div class="push_double--top align--center">
+  <a href="/" class="btn">All posts</a>
+</div> 

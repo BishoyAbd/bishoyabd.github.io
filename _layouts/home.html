@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<header class="push_double--ends align--center">
+  <a class="undecorated" aria-label="All posts from {{ site.title }}" href="/">
+    <img src="{{ '/assets/images/profile.jpg' | relative_url }}" class="avatar i-flex" width="50" height="50">
+    <p class="txt--x-small txt--subtle txt--uppercase txt--normal txt--spread flush--top push--after-name">
+      {{ site.title }}
+    </p>
+  </a>
+  
+  <div class="bio txt--small txt--subtle">
+    <div class="trix-content">
+      <div>{{ site.description }}</div>
+    </div>
+  </div>
+  
+  <div class="social-links">
+    <a href="https://github.com/bishoyabd" class="social-link" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i> <span>GitHub</span>
+    </a>
+    <a href="https://linkedin.com/in/bishoyabd" class="social-link" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+    </a>
+    <a href="mailto:bishoy.kamel@dubito.ai" class="social-link">
+      <i class="far fa-envelope"></i> <span>Email</span>
+    </a>
+  </div>
+</header>
+
+<section>
+  {% for post in site.posts %}
+  <article class="card card--list push--bottom">
+    <header class="align--center">
+      <div class="card__date txt--x-small flush--top push_quarter--bottom txt--subtle">
+        <span>{{ post.date | date: "%B %-d, %Y" }}</span>
+      </div>
+      <h2 class="hdg hdg--x-large flush--top push--bottom" dir="auto">
+        {{ post.title }}
+      </h2>
+    </header>
+
+    <div class="card__content" dir="auto">
+      {{ post.excerpt }}
+    </div>
+
+    <a class="card__link" aria-label="Post: {{ post.title }}, on {{ post.date | date: '%B %-d, %Y' }}" href="{{ post.url | relative_url }}">Read more</a>
+
+    <div class="card__more txt--x-small" aria-hidden="true">
+      <span class="btn btn--subtle">Read more</span>
+    </div>
+  </article>
+  {% endfor %}
+</section> 

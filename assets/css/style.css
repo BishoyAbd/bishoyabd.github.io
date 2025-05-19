@@ -1,0 +1,540 @@
+/* Base styles */
+:root {
+  --content-width: 98rem;
+  --body-padding: 6.4rem;
+  --page-padding: 1.6rem;
+  --font-family: -apple-system, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family--mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --font-size-base: 11px;
+  --font-size-xx-small: 1.1rem;
+  --font-size-x-small: 1.2rem;
+  --font-size-small: 1.4rem;
+  --font-size-medium: 1.6rem;
+  --font-size-large: 1.8rem;
+  --font-size-x-large: 2.4rem;
+  --font-size-xx-large: 3.4rem;
+  --base-space: 1.25em;
+  --half-space: calc(var(--base-space) / 2);
+  --quarter-space: calc(var(--base-space) / 4);
+  --double-space: calc(var(--base-space) * 2);
+  
+  /* Colors */
+  --rgb-black: 0, 0, 0;
+  --rgb-white: 255, 255, 255;
+  --rgb-almost-black: 35, 28, 51;
+  --rgb-almost-white: 236, 233, 230;
+  --rgb-medium-gray: 226, 221, 215;
+  --rgb-light-gray: 251, 250, 249;
+  --rgb-warm-bg: 255, 254, 252;
+  
+  --color-black: rgb(var(--rgb-black));
+  --color-almost-black: rgb(var(--rgb-almost-black));
+  --color-bg--main: rgb(var(--rgb-warm-bg));
+  --color-bg--surface: rgba(var(--rgb-medium-gray), 0.4);
+  --color-bg--surface-glint: rgba(var(--rgb-medium-gray), 0.15);
+  
+  /* Custom colors for our site */
+  --text-color: var(--color-almost-black);
+  --text-subtle-color: rgba(var(--rgb-almost-black), 0.66);
+  --border-light: #eee;
+  --border-medium: #ddd;
+  --bg-light: var(--color-bg--surface-glint);
+  --link-hover: #0066cc;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  /* Add box model properties */
+  --box-padding-vertical: 0.25em;
+  --box-padding-horizontal: 0.5em;
+}
+
+@media (min-width: 60em) {
+  :root {
+    --font-size-xx-small: 1.2rem;
+    --font-size-x-small: 1.4rem;
+    --font-size-small: 1.6rem;
+    --font-size-medium: 1.8rem;
+    --font-size-large: 2rem;
+    --font-size-x-large: 2.8rem;
+    --font-size-xx-large: 4rem;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--color-bg--main);
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix line height and margin issues for all text elements */
+p, h1, h2, h3, h4, h5, h6, span, div, li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  margin-top: 0;
+  /* Ensure text has padding to prevent cut-off */
+  padding-top: var(--box-padding-vertical);
+  padding-bottom: var(--box-padding-vertical);
+}
+
+/* Layout */
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--page-padding);
+}
+
+.page--medium\@medium {
+  margin: 0 auto;
+}
+
+.page__content {
+  padding: 0 16px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Typography */
+.txt--x-small {
+  font-size: var(--font-size-x-small);
+  line-height: 1.4;
+}
+
+.txt--small {
+  font-size: var(--font-size-small);
+  line-height: 1.5;
+}
+
+.txt--subtle {
+  color: var(--text-subtle-color);
+}
+
+.txt--uppercase {
+  text-transform: uppercase;
+}
+
+.txt--normal {
+  font-weight: normal;
+}
+
+.txt--spread {
+  letter-spacing: 0.05em;
+}
+
+.hdg {
+  font-weight: bold;
+  line-height: 1.3;
+  margin-top: 0.2em;
+}
+
+.hdg--x-large {
+  font-size: var(--font-size-x-large);
+  margin-bottom: 0.5rem;
+  padding-top: 0.1em;
+}
+
+.hdg--xx-large {
+  font-size: var(--font-size-xx-large);
+  margin-bottom: 1rem;
+}
+
+/* Layout helpers */
+.push--bottom {
+  margin-bottom: 1.5rem;
+}
+
+.push_double--bottom {
+  margin-bottom: 3rem;
+}
+
+.push_quarter--bottom {
+  margin-bottom: 0.375rem;
+}
+
+.push_half--top {
+  margin-top: 0.75rem;
+}
+
+.push_double--top {
+  margin-top: 3rem;
+}
+
+.push_double--ends {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.flush--top {
+  margin-top: 0;
+}
+
+.align--center {
+  text-align: center;
+}
+
+/* Avatar */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+  display: block;
+}
+
+.i-flex {
+  display: inline-flex;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.undecorated {
+  text-decoration: none;
+}
+
+.permalink {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Form elements */
+.input {
+  padding: 0.75rem;
+  font-size: var(--font-size-small);
+  border: none;
+  outline: none;
+}
+
+.input--full-width {
+  width: 100%;
+}
+
+.input--borderless {
+  border: none;
+}
+
+.unpad {
+  padding: 0.5rem 0.75rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-item--grow {
+  flex-grow: 1;
+}
+
+.btn--plain {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background: transparent;
+  border-left: 1px solid #ccc;
+  cursor: pointer;
+  font-size: var(--font-size-x-small);
+}
+
+.btn--plain:hover {
+  background-color: var(--bg-light);
+}
+
+.btn--subtle {
+  display: inline-block;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-x-small);
+  color: var(--text-subtle-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-medium);
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: var(--font-size-x-small);
+}
+
+/* Posts section */
+.posts {
+  display: block;
+}
+
+/* Adjust spacing for cards with borders */
+section {
+  margin-bottom: 2rem;
+  margin-top: 4rem;
+}
+
+.card {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  padding-bottom: 2rem;
+  position: relative;
+  background-color: var(--color-bg--main);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  transition: none;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card--list {
+  position: relative;
+  background: var(--color-bg--main);
+}
+
+.card:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: none;
+}
+
+.card__date {
+  margin-bottom: 0.375rem;
+}
+
+.card__content {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-size: var(--font-size-medium);
+  line-height: 1.6;
+  flex-grow: 1;
+  padding-top: 0.1em;
+}
+
+.card__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-indent: -9999px;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.card__more {
+  display: block;
+  margin-top: 1.5rem;
+  text-align: center;
+  position: relative;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.card:hover .card__more {
+  display: block;
+}
+
+/* Post styles */
+.post {
+  margin-bottom: 2rem;
+}
+
+.post__content {
+  margin-bottom: 2rem;
+  font-size: var(--font-size-medium);
+}
+
+.post__date {
+  color: var(--text-subtle-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Content styling */
+.prose {
+  font-size: var(--font-size-medium);
+  line-height: 1.6;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+}
+
+.prose h2 {
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  font-size: var(--font-size-medium);
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose a {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--border-medium);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #555;
+  font-style: italic;
+}
+
+.trix-content a {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.trix-content {
+  font-size: var(--font-size-medium);
+  line-height: 1.5;
+}
+
+/* Tags */
+.tags {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--bg-light);
+  border-radius: 1rem;
+  font-size: var(--font-size-x-small);
+  color: var(--text-subtle-color);
+}
+
+/* Add more space after the profile name */
+.push--after-name {
+  margin-bottom: 1.5rem;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: var(--text-subtle-color);
+  font-size: 1.4rem;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-link:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+.social-link i {
+  font-size: 1.2rem;
+}
+
+/* Code and pre formatting - improved */
+code {
+  font-family: var(--font-family--mono);
+  font-size: 90%;
+  background-color: rgba(var(--rgb-medium-gray), 0.2);
+  padding: var(--box-padding-vertical) var(--box-padding-horizontal);
+  border-radius: 3px;
+  word-break: break-word;
+  display: inline-block;
+  line-height: 1.4;
+}
+
+pre {
+  background-color: rgba(var(--rgb-medium-gray), 0.2);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: var(--font-size-small);
+  line-height: 1.6;
+  display: block;
+}
+
+/* Fix for YEAR-MONTH-DAY-title.MARKUP display */
+.card__content p {
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.6;
+}
+
+/* Properly display Jekyll post format example */
+.jekyll-format {
+  font-family: var(--font-family--mono);
+  background-color: rgba(var(--rgb-medium-gray), 0.2);
+  padding: var(--box-padding-vertical) var(--box-padding-horizontal);
+  border-radius: 3px;
+  white-space: nowrap;
+  display: inline-block;
+  margin: 0.25em 0;
+  line-height: 1.4;
+}
+
+/* Ensure proper content wrapping */
+.trix-content div,
+.prose p,
+.card__content p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+} 

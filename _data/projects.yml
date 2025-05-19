@@ -1,0 +1,24 @@
+- title: "Portfolio Website"
+  description: "Personal portfolio and blog built with Jekyll and Tailwind CSS"
+  image: "/assets/images/project1.jpg"
+  link: "https://github.com/yourusername/portfolio"
+
+- title: "Task Manager App"
+  description: "A productivity application built with React and Firebase"
+  image: "/assets/images/project2.jpg"
+  link: "https://github.com/yourusername/task-manager"
+
+- title: "E-commerce Platform"
+  description: "Online shop with catalog, cart and checkout functionality"
+  image: "/assets/images/project3.jpg"
+  link: "https://github.com/yourusername/ecommerce-platform"
+  
+- title: "Weather Dashboard"
+  description: "Real-time weather information using OpenWeather API"
+  image: "/assets/images/project4.jpg"
+  link: "https://github.com/yourusername/weather-dashboard"
+  
+- title: "Chat Application"
+  description: "Real-time messaging platform built with Node.js and Socket.io"
+  image: "/assets/images/project5.jpg"
+  link: "https://github.com/yourusername/chat-app" 

@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.prose {
+  @apply max-w-none;
+}
+
+.prose img {
+  @apply rounded-lg shadow-lg;
+}
+
+.prose a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply font-bold text-gray-900;
+}
+
+.prose p {
+  @apply text-gray-700;
+}
+
+/* Navigation */
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100;
+}
+
+.nav-link.active {
+  @apply bg-gray-100 text-gray-900;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden;
+}
+
+.card-image {
+  @apply w-full h-48 object-cover;
+}
+
+.card-content {
+  @apply p-4;
+}
+
+.card-title {
+  @apply text-xl font-semibold text-gray-900 mb-2;
+}
+
+.card-text {
+  @apply text-gray-700;
+}
+
+/* Hero section */
+.hero {
+  @apply bg-gray-50 py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.hero-content {
+  @apply max-w-7xl mx-auto;
+}
+
+.hero-title {
+  @apply text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl;
+}
+
+.hero-subtitle {
+  @apply mt-5 text-xl text-gray-500;
+} 
