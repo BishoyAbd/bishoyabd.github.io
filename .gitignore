@@ -3,3 +3,10 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# add node_modules 
+node_modules
+
+# add .env to ignore
+.env
+
