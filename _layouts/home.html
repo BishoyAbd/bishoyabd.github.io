@@ -2,41 +2,11 @@
 layout: default
 ---
 
-<header class="push_double--ends align--center">
-  <a class="undecorated" aria-label="All posts from {{ site.title }}" href="/">
-    <img src="{{ '/assets/images/profile.jpg' | relative_url }}" class="avatar i-flex" width="50" height="50">
-    <p class="txt--x-small txt--subtle txt--uppercase txt--normal txt--spread flush--top push--after-name">
-      {{ site.title }}
-    </p>
-  </a>
-  
-  <div class="bio txt--small txt--subtle">
-    <div class="trix-content">
-      <div>{{ site.description }}</div>
-    </div>
-  </div>
-  
-  <div class="social-links">
-    {% for link in site.bio_links %}
-      {% assign icon_class = "" %}
-      {% if link.title == "GitHub" %}
-        {% assign icon_class = "fab fa-github" %}
-      {% elsif link.title == "LinkedIn" %}
-        {% assign icon_class = "fab fa-linkedin" %}
-      {% elsif link.title == "Email" %}
-        {% assign icon_class = "far fa-envelope" %}
-      {% endif %}
-      
-      {% if icon_class != "" %}
-        <a href="{{ link.url }}" class="social-link" {% unless link.title == "Email" %}target="_blank" rel="noopener noreferrer"{% endunless %}>
-          <i class="{{ icon_class }}"></i> <span>{{ link.title }}</span>
-        </a>
-      {% endif %}
-    {% endfor %}
-  </div>
+<header class="push--bottom">
+  {% include profile_header.html show_bio=true show_social=true %}
 </header>
 
-<section>
+<section class="flush--top">
   {% for post in site.posts %}
   <article class="card card--list push--bottom">
     <header class="align--center">
@@ -49,14 +19,14 @@ layout: default
     </header>
 
     <div class="card__content" dir="auto">
-      {{ post.excerpt }}
+      {{ post.excerpt | strip_html | truncatewords: 50 }}
     </div>
 
-    <a class="card__link" aria-label="Post: {{ post.title }}, on {{ post.date | date: '%B %-d, %Y' }}" href="{{ post.url | relative_url }}">Read more</a>
-
-    <div class="card__more txt--x-small" aria-hidden="true">
-      <span class="btn btn--subtle">Read more</span>
+    <div class="card__actions">
+      <a href="{{ post.url | relative_url }}" class="read-more">Read more</a>
     </div>
+    
+    <a class="card__link" aria-label="Post: {{ post.title }}, on {{ post.date | date: '%B %-d, %Y' }}" href="{{ post.url | relative_url }}"></a>
   </article>
   {% endfor %}
 </section> 

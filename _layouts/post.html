@@ -2,12 +2,10 @@
 layout: default
 ---
 
-<div class="push--bottom">
-  <a href="/" class="txt--x-small txt--subtle">← All posts</a>
-</div>
-
-<article class="post card">
-  <header class="align--center push--bottom">
+<article class="post flush--top">
+  <header class="post-header align--center push--bottom">
+    {% include profile_header.html %}
+    
     <div class="post__date txt--x-small flush--top push_quarter--bottom txt--subtle">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
     </div>

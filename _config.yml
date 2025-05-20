@@ -18,14 +18,27 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# SEO settings
 title: Bishoy Kamel
+tagline: Thinker, Innovator, Problem-Solver
 email: bishoy.kamel@dubito.ai
 description: >- # this means to ignore newlines until "baseurl:"
-   Dubito, ergo Cogito. Cogito, ergo sum.
+  Dubito, ergo Cogito. Cogito, ergo sum.
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bishoyabd.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bishoyabd
 github_username: bishoyabd
+author:
+  name: Bishoy Kamel
+  twitter: bishoyabd
+logo: /assets/images/profile.jpg
+social:
+  name: Bishoy Kamel
+  links:
+    - https://github.com/bishoyabd
+    - https://www.linkedin.com/in/bishoylmee/
+    - https://twitter.com/bishoyabd
 
 # Bio links that appear under your name
 bio_links:

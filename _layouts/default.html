@@ -13,9 +13,19 @@
 </head>
 <body>
     <main id="main-content" class="page page--medium@medium">
+        <nav class="site-nav">
+            {% for item in site.data.navigation %}
+            <a href="{{ item.link | relative_url }}" {% if page.url == item.link %}class="active"{% endif %}>{{ item.name }}</a>
+            {% endfor %}
+        </nav>
+        
         <div class="page__content">
             {{ content }}
         </div>
+        
+        <footer class="site-footer">
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+        </footer>
     </main>
 </body>
 </html> 

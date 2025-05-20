@@ -1,0 +1,37 @@
+<div class="profile-header align--center">
+  <a class="undecorated" aria-label="All posts from {{ site.title }}" href="/">
+    <img src="{{ '/assets/images/profile.jpg' | relative_url }}" class="avatar i-flex" width="70" height="70">
+    <p class="txt--x-small txt--subtle txt--uppercase txt--normal txt--spread flush--top push--after-name">
+      {{ site.title }}
+    </p>
+  </a>
+  
+  {% if include.show_bio %}
+  <div class="bio txt--small txt--subtle">
+    <div class="trix-content">
+      <div>{{ site.description }}</div>
+    </div>
+  </div>
+  {% endif %}
+  
+  {% if include.show_social %}
+  <div class="social-links">
+    {% for link in site.bio_links %}
+      {% assign icon_class = "" %}
+      {% if link.title == "GitHub" %}
+        {% assign icon_class = "fab fa-github" %}
+      {% elsif link.title == "LinkedIn" %}
+        {% assign icon_class = "fab fa-linkedin" %}
+      {% elsif link.title == "Email" %}
+        {% assign icon_class = "far fa-envelope" %}
+      {% endif %}
+      
+      {% if icon_class != "" %}
+        <a href="{{ link.url }}" class="social-link" {% unless link.title == "Email" %}target="_blank" rel="noopener noreferrer"{% endunless %}>
+          <i class="{{ icon_class }}"></i> <span>{{ link.title }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</div> 
